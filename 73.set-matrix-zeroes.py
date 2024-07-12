@@ -37,10 +37,10 @@ class Solution(object):
             for i in range(rows):
                 matrix[i][0] = 0 
         """
-                columns j 
-                0      1    2
-        row    0         a
-        i     1 (1,0) (1,1)b
+                    columns j 
+                    0     1    2
+        row     0         a
+        i       1 (1,0) (1,1)  b
                 2  c
                 
             matrix[0][j] => row is 0
@@ -48,7 +48,6 @@ class Solution(object):
             [1, 1, 1],
             [1, 0, 1],
             [1, 1, 1]
-                |
                 |    matrix[0][1] = 0  # Mark the column to be zeroed
                 |    matrix[1][0] = 0  # Mark the row to be zeroed
                 v
@@ -56,6 +55,12 @@ class Solution(object):
         0   [1, 0, 1],
         1   [0, 0, 1],
         2   [1, 1, 1]
+                |
+                v
+            [1, 0, 1],
+            [0, 0, 0],
+            [1, 0, 1]
+
                             
         For i=1 and j=1:
         a: matrix[0][1] == 0 is true, so set b matrix[1][1] to 0.
@@ -65,6 +70,25 @@ class Solution(object):
         matrix[0][1] == 0 is true, so set matrix[2][1] to 0.
         For i=2 and j=2:
         matrix[0][2] == 0 is false, and matrix[2][0] == 0 is false, so matrix[2][2] remains 1.
+        
+        Other solution:
+           if not matrix:
+            return []
+        
+        m = len(matrix)
+        n = len(matrix[0])
+        rowzero = [False] * m
+        colzero = [False] * n
+        for row in range(m):
+            for col in range(n):
+                if matrix[row][col] == 0:
+                    rowzero[row] = True
+                    colzero[col] = True
+        for row in range(m):
+            for col in range(n):
+                if rowzero[row] or colzero[col]:
+                    matrix[row][col] = 0
+        
         """
 # @lc code=end
 
