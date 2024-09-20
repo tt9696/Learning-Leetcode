@@ -12,7 +12,9 @@ class Solution(object):
         :rtype: int
         """
         # [[10,16],[2,8],[1,6],[7,12]]
-
+        if not points:
+            return 0
+        
         points.sort(key=lambda x:x[1]) # [[1,6], [2,8], [7,12], [10,16]]
         arrows = 1
         end = points[0][1] # End of the first balloon after sorting -> 6
