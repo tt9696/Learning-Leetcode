@@ -4,7 +4,7 @@
 # [20] Valid Parentheses
 # https://www.youtube.com/watch?v=WTzjTskDFMg
 
-# @lc code=start
+# @lc code=start 
 class Solution(object):
     def isValid(self, s):
         """
@@ -35,6 +35,5 @@ class Solution(object):
 4. bracket_map[']'] == '[' => stack = []
 5. stack = ['{']
 6. bracket_map['}'] == '{' => stack = []
-
 '''
 
