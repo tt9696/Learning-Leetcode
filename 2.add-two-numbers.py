@@ -21,13 +21,13 @@ class Solution(object):
         current = dummy # Pointer for the result list
         carry = 0
 
-        while l1 or l2 or carry:
+        while l1 or l2 or carry: # to handle any remaining carry-over
             # Get the current values of l1 and l2, if they exist
             val1 = l1.val if l1 else 0
             val2 = l2.val if l2 else 0
             
             total = val1 + val2 + carry
-            carry = total // 10
+            carry = total // 10 # calculates how many tens are in total, carry = 15 // 10 = 1
             current.next = ListNode(total % 10)
 
             current = current.next
@@ -67,5 +67,11 @@ Create New Node: Create a new node with value 8 (total % 10), and link it to cur
 Move Pointers: Advance l1 and l2 to null, and current to the newly created node.
 Result so far: 7 -> 0 -> 8
 
+
+Check remaining carry in while loop:
+If l1 represents 9 -> 9 -> null (which is 99)
+And l2 represents 1 -> null (which is 1)
+The sum is 100, represented as 0 -> 0 -> 1.
+l1 and l2 are both null, but carry is still 1.
 """
 
