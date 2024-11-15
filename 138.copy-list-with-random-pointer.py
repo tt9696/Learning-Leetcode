@@ -75,8 +75,8 @@ Iteration 3: Process Node3
 Node3.next = None
 Node3'.random = Node2'
 
-||
-V
+| |
+ V
  old_to_new = {
     Node1: Node1' (val=7, next=Node2', random=None),
     Node2: Node2' (val=13, next=Node3', random=Node1'),
