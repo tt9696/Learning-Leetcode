@@ -42,8 +42,13 @@ class Solution(object):
             current = current.next
 
         return old_to_new[head]
-        # old_to_new : Node1' (val: 7) -> Node2' (val: 13) -> Node3' (val: 11)
-        # old_to_new[head] : 7 -> 13 -> 11
+            # old_to_new = {
+            # Node1: Node1' (val=7),
+            # Node2: Node2' (val=13),
+            # Node3: Node3' (val=11)
+        # } it doesn't provide any information about the random pointers
+        # Expected Output Format: [node_value, random_pointer_index]  
+        # head (which points to Node1 (val=7)) =>[[7,null],[13,0],[11,4],[10,2],[1,0]]
         
 # @lc code=end
 """
