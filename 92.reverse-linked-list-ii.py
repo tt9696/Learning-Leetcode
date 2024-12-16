@@ -29,60 +29,38 @@ class Solution(object):
         for _ in range(left-1):
             prev = prev.next # prev = 1
 
-        # dummy -> 1 -> 2 -> 3 -> 4 -> 5
-
-        # Step 2: Start the reversal process
-        start = prev.next # start = 2
-        then = start.next # then = 3
+        current = prev.next #current = 2
 
         # Reverse the sublist
-        # left = 2, right = 4
-        for _ in range(right-left): # 0, 1, 2
-            start.next = then.next
-            then.next = prev.next 
-            prev.next = then 
-            then = start.next 
+        for _ in range(right-left):  # 0, 1, 2
+            temp = current.next # temp -> 3
+            current.next = temp.next # current.next -> 4
+            temp.next = prev.next # temp.next -> 2
+            prev.next = temp # prev.next -> 3
 
         return dummy.next
-        
 # @lc code=end
 
 """
 head = [1, 2, 3, 4, 5], left = 2, right = 4
 
-dummy -> 1 -> 2 -> 3 -> 4 -> 5
-         |    |    |
-        prev start then
-
-prev = dummy, prev =1, start = 2, then = 3
+Initial State:
+prev → 1
+curr → 2
+Sublist to reverse: [2, 3, 4]
 
 First Iteration:
-then = 3 => dummy -> 1 -> 3 -> 2 -> 4 -> 5
-then = start.next # 4 
+temp = curr.next: temp → 3
+curr.next = temp.next: List becomes 1 -> 2 -> 4 -> 5, and temp → 3.
+temp.next = prev.next: temp.next → 2 (current reversed portion).
+prev.next = temp: List becomes 1 -> 3 -> 2 -> 4 -> 5.
 
 Second Iteration:
-then = 4 => dummy -> 1 -> 4 -> 3 -> 2 -> 5
-then = start.next # 5 
+temp = curr.next: temp → 4
+curr.next = temp.next: List becomes 1 -> 3 -> 2 -> 5, and temp → 4.
+temp.next = prev.next: temp.next → 3 (current reversed portion).
+prev.next = temp: List becomes 1 -> 4 -> 3 -> 2 -> 5.
 
-End:
-The sublist [2, 3, 4] is now reversed.
-
-Output : [1, 4, 3, 2, 5]
-
-start = 2, then = 3, prev = 1
-
-Step 1: start.next = then.next (Update start.next to point to 4)
-dummy -> 1 -> 2    3 -> 4 -> 5
-                \
-                 -> 4
-
-Step 2: then.next = prev.next (Update then.next to point to prev.next 3 -> 2 (which is 2)
-dummy -> 1 -> 3 -> 2    4 -> 5
-
-Step 3: prev.next = then (Update prev.next to point to then (which is 3))
-dummy -> 1 -> 3 -> 2 -> 4 -> 5
-
-Step 4: then = start.next
-Move then to start.next, which is 4.
-
+Final State:
+The sublist [2, 3, 4] is now reversed to [4, 3, 2].
 """
