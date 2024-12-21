@@ -11,9 +11,9 @@ class Solution(object):
         :type s: str
         :rtype: str
         """
-        s = s.strip()
-        words = s.split()
-        words.reverse() #w = word[::-1]
+        s = s.strip() # the sky is blue
+        words = s.split() # ['the', 'sky', 'is', 'blue']
+        words.reverse() # w = word[::-1] blue is sky the
         words = " ".join(words)
         return words
         

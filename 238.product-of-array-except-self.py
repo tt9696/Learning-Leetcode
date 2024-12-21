@@ -40,7 +40,8 @@ class Solution(object):
     For i = 1: left_product = 1 * 1 = 1, answer = [1, 1, 1, 1]
     For i = 2: left_product = 1 * 2 = 2, answer = [1, 1, 2, 1]
     For i = 3: left_product = 2 * 3 = 6, answer = [1, 1, 2, 6]
-    
+    answer = [1, 1, 2, 6]
+
     Right Products and Combine:
     answer[i] *= right_product, right_product*=nums[i]
     For i = 3: answer[3] * 1 = 6, right_product= 1* 4 = 4
