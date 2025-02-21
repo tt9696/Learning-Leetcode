@@ -23,8 +23,6 @@ class Solution(object):
 
         return len(occurrences) == len(uniques_occurrence)
 
-        
-        
 # @lc code=end
 
 """
