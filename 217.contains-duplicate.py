@@ -19,6 +19,7 @@ class Solution(object):
         return False
     
     """
+    Sorting takes O(n log n) time, slower than O(n) set().
     num.sort()
     for i in range(1, len(nums)):
         if nums[i] == nums[i-1]:
