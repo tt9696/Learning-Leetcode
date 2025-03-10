@@ -31,4 +31,12 @@ class Solution(object):
 
         
 # @lc code=end
-
+"""
+s=set(nums)
+l=list(s)
+l.sort()
+if len(l)<=2:
+    return max(l)
+else:
+    return l[len(l)-3]
+"""
