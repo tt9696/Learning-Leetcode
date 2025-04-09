@@ -2,7 +2,9 @@
 # @lc app=leetcode id=888 lang=python
 #
 # [888] Fair Candy Swap
-#
+# Find one pair of candies (x from Alice, y from Bob) such that:
+# sum(A) - x + y == sum(B) - y + x
+# exchange one candy box each so that after the exchange, they both have the same total amount of candy.
 
 # @lc code=start
 class Solution(object):
@@ -17,11 +19,26 @@ class Solution(object):
         diff = (sumB - sumA) // 2
         bobSet = set(bobSizes)
 
+        # Alice needs to give away a candy that is diff bigger than what she gets.
         for x in aliceSizes:
             y = x + diff
-            if y in bobSet:
+            if y in bobSet: # Make sure Bob actually has the matching candy.
                 return [x, y]
-        
+        """
+        A = [1, 2]
+        B = [2, 3]
+        sumA = 3
+        sumB = 5
+        difference = (3 - 5) // 2 = -1
+
+        That means: Alice needs to take a candy 1 bigger than what she gives.
+
+        Try:
+        - x = 1 → y = 2 ❌ (2 not in B)
+        - x = 2 → y = 3 ✅ (3 is in B)
+
+So return [2, 3]
+        """
 # @lc code=end
 """
 Swapping first and then checking if the total is equal would be inefficient because:
