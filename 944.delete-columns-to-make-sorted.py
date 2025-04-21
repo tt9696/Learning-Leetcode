@@ -50,4 +50,10 @@ Compare row 1 'f' with row 0 'a': 'f' >= 'a' ✅
 Compare row 2 'i' with row 1 'f': 'i' >= 'f' ✅
 ✅ Column 2 is sorted — do not delete.
 
+Other solution:
+       count = 0
+        for string in zip(*strs):
+            if list(string) != sorted(string) :
+                count += 1
+        return count
 """
