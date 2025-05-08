@@ -24,8 +24,8 @@ class Solution(object):
         heapq.heapify(stones) #stones = [-8, -7, -4, -1, -2, -1]
 
         while len(stones) > 1:
-            first = -heapq.heappop(stones) #largest
-            second = -heapq.heappop(stones) #second largest
+            first = -heapq.heappop(stones) #largest 8
+            second = -heapq.heappop(stones) #second largest 7
             if first != second:
                 heapq.heappush(stones, -(first-second))
 
