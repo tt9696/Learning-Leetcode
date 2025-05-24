@@ -61,11 +61,6 @@ Before: 10110  (which is 22)
 After:  1011   (which is 11)
 """
 """
-def binaryGap(self, n: int) -> int:
-  
-
-"""
-"""
        prev = None
         max_gap = 0
         index = 0
